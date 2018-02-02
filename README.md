@@ -1,4 +1,9 @@
-# BooksApi
+# Boards-Sales
+## Description
+- Board-sales is an elixir JsonApi to be used as backend for e-commerce websites.
+
+  * First install docker for your environment
+  * Build the image and up the server.
 
 To start your Phoenix app:
 
