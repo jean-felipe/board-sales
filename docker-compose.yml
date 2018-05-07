@@ -2,13 +2,14 @@ version: '2'
 services:
   db:
     image: postgres:9.5
-  web:
+    ports:
+      - "5432"
+  app:
     build: .
-    command: mix phx.server
+    command: bash -c "mix deps.get && mix ecto.create && mix ecto.migrate && mix phx.server"
     volumes:
-      - .:/basetest
+      - .:/app
     ports:
       - "4000:4000"
     depends_on:
       - db
-  

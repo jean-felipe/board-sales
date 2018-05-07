@@ -54,4 +54,15 @@ RUN mix local.hex --force && \
   mix local.rebar --force && \
   mix hex.info
 
-WORKDIR /basetest
+RUN mkdir -p /app
+
+WORKDIR /app
+
+COPY mix.exs ./
+RUN mix deps.get
+
+COPY . ./
+
+EXPOSE 4000
+
+CMD ["mix","phx.server"]
